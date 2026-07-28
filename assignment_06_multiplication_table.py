@@ -52,6 +52,44 @@
 
 #
 # =============================================================================
-# YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
-# =============================================================================
+def print_single_table():
+    """Ask the user for a number and print its multiplication table from 1 to 12."""
+    try:
+        num = int(input("Enter a number: "))
+    except ValueError:
+        print("Error: please enter a valid integer.")
+        return
 
+    print(f"Multiplication Table for {num}:")
+    for i in range(1, 13):
+        print(f"{num}  x  {i:<2} =  {num * i}")
+
+
+def print_tables_up_to_n():
+    """Ask the user for N and print multiplication tables for every number from 1 to N."""
+    try:
+        n = int(input("Enter a number N: "))
+    except ValueError:
+        print("Error: please enter a valid positive integer.")
+        return
+
+    if n <= 0:
+        print("Error: N must be a positive integer.")
+        return
+
+    for num in range(1, n + 1):
+        print(f"Multiplication Table for {num}:")
+        for i in range(1, 13):
+            print(f"{num}  x  {i:<2} =  {num * i}")
+        if num != n:
+            print("-" * 27)
+
+
+def main():
+    print_single_table()
+    print()
+    print_tables_up_to_n()
+
+
+if __name__ == "__main__":
+    main()
